@@ -18,7 +18,7 @@ const ready = () => {
 const startSecondServer = () => {
     server1.close(() => {
         server2 = new Server(compiler, {
-            hot: true,
+            hot: false,
             port,
         });
         server2.listen(port, host, () => {
@@ -31,7 +31,7 @@ const compiler = webpack(config);
 compiler.hooks.done.tap('done', ready);
 
 server1 = new Server(compiler, {
-    hot: false,
+    hot: true,
     port,
 });
 server1.listen(port, host, () => {
