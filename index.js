@@ -18,7 +18,7 @@ const ready = () => {
 const startSecondServer = () => {
     server1.close(() => {
         server2 = new Server(compiler, {
-            hot: false,
+            hot: true,
             port,
         });
         server2.listen(port, host, () => {
